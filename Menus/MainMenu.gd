@@ -9,4 +9,4 @@ func _on_Button_pressed():
 func _input(event):
 	if Input.is_action_pressed("ui_accept"):
 		Global.goto_scene(path)
-	
+

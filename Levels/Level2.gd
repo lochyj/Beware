@@ -6,7 +6,7 @@ onready var exit = $Exit
 
 func _ready():
 	exit.connect("on_exit", self, "Exit")
-	
+
 
 func Exit():
 	Global.goto_scene(path)
