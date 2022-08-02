@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Beware!-ghoulanim.png-15587e0a7b6ac27b7c899696701d5c4e.stex"
+path="res://.import/Beware!-ghoulanim.png-e2e175dc569c1bb4749daf9d5ccc3392.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/Beware!-ghoulanim.png"
-dest_files=[ "res://.import/Beware!-ghoulanim.png-15587e0a7b6ac27b7c899696701d5c4e.stex" ]
+source_file="res://Enemies/Ghoul/Beware!-ghoulanim.png"
+dest_files=[ "res://.import/Beware!-ghoulanim.png-e2e175dc569c1bb4749daf9d5ccc3392.stex" ]
 
 [params]
 
