@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Menus/Completed.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://Fonts/Comfortaa-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=9]
+size = 49
+outline_size = 1
+font_data = SubResource( 8 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.184314, 0.184314, 0.184314, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.176471, 0.176471, 0.294118, 1 )
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.34902, 0.34902, 0.34902, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="DynamicFont" id=13]
+size = 60
+font_data = ExtResource( 1 )
+
+[node name="Completed" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="LevelSelector" type="Button" parent="Control"]
+margin_left = 304.0
+margin_top = 272.0
+margin_right = 724.0
+margin_bottom = 337.0
+rect_pivot_offset = Vector2( -432, -176 )
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "Level Selector"
+
+[node name="MainMenu" type="Button" parent="Control"]
+margin_left = 304.0
+margin_top = 368.0
+margin_right = 724.0
+margin_bottom = 433.0
+rect_pivot_offset = Vector2( -432, -176 )
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "Main Menu"
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 304.0
+margin_top = 80.0
+margin_right = 714.0
+margin_bottom = 219.0
+custom_fonts/font = SubResource( 13 )
+text = "You finished 
+the level!"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="Control/LevelSelector" to="." method="_on_LevelSelector_pressed"]
+[connection signal="pressed" from="Control/MainMenu" to="." method="_on_MainMenu_pressed"]

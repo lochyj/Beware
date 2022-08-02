@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/TutorialSelect.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/DotGothic16-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=99]
+size = 141
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFontData" id=100]
+font_path = "res://Fonts/DotGothic16-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=98]
+size = 48
+font_data = SubResource( 100 )
+
+[node name="TutorialSelect" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label3" type="Label" parent="Control"]
+margin_left = 144.0
+margin_top = 32.0
+margin_right = 885.0
+margin_bottom = 237.0
+custom_fonts/font = SubResource( 99 )
+text = "Tutorial"
+align = 1
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 144.0
+margin_top = 256.0
+margin_right = 885.0
+margin_bottom = 326.0
+custom_fonts/font = SubResource( 98 )
+text = "Press \"T\" to start the tutorial"
+align = 1
+
+[node name="Label2" type="Label" parent="Control"]
+margin_left = 144.0
+margin_top = 336.0
+margin_right = 885.0
+margin_bottom = 406.0
+custom_fonts/font = SubResource( 98 )
+text = "Or \"Space\" to skip the tutorial"
+align = 1

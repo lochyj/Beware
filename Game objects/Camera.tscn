@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Fonts/DotGothic16-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Resources/CoinAnim.png" type="Texture" id=2]
+[ext_resource path="res://Game objects/Camera.gd" type="Script" id=3]
+
+[sub_resource type="Shader" id=49]
+code = "shader_type canvas_item;
+uniform vec2 player_position;
+uniform vec4 color : hint_color = vec4(0.305, 0.298, 0.341,1);
+
+uniform float MULTIPLIER = 0.56;
+uniform float SCALE = 0.5;
+uniform float SOFTNESS = 0.45;
+
+void fragment(){
+	float val = distance(vec2(UV.x , UV.y * MULTIPLIER), vec2(player_position.x , player_position.y * MULTIPLIER));
+	val = val / SCALE;
+	float vignette = smoothstep(0.2, SOFTNESS, val);
+	COLOR = vec4(color.rgb , vignette );
+}"
+
+[sub_resource type="ShaderMaterial" id=50]
+shader = SubResource( 49 )
+shader_param/player_position = Vector2( 0.5, 0.5 )
+shader_param/color = Color( 0, 0, 0, 1 )
+shader_param/MULTIPLIER = 0.56
+shader_param/SCALE = 1.524
+shader_param/SOFTNESS = 0.539
+
+[sub_resource type="DynamicFont" id=51]
+size = 59
+outline_size = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 8, 9 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 8, 0, 8, 9 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 8, 9 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 24, 0, 8, 9 )
+
+[sub_resource type="SpriteFrames" id=52]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.0
+} ]
+
+[node name="Camera" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 512, 304 )
+current = true
+
+[node name="Vignette" type="CanvasLayer" parent="Camera2D"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/Vignette"]
+material = SubResource( 50 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Vignette"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Camera2D/Vignette"]
+margin_left = 96.0
+margin_top = 16.0
+margin_right = 186.0
+margin_bottom = 102.0
+custom_fonts/font = SubResource( 51 )
+text = "x 0"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 48, 58 )
+scale = Vector2( 8, 8 )
+frames = SubResource( 52 )
