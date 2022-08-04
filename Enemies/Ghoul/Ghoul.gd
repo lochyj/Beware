@@ -1,32 +1,40 @@
 extends KinematicBody2D
 
-export var speed = 100
+export(int) var MAX_SPEED = 80
+export(int) var ACCELERATION = 450
+export(int) var FRICTION = 900
+
+onready var loc1 = $"Loc 1"
+onready var loc2 = $"Loc 2"
+onready var Sprite = $Sprite
+
+var extent = 1
 
 var velocity = Vector2.ZERO
-var path = []
-var threshold = 16
-var nav = null
-
-func _ready():
-	yield(owner, "ready")
-	nav = owner.nav
 
 func _physics_process(delta):
-	if path.size() > 0:
-		move_to_target()
+	var input_vector = Vector2.ZERO
+	var loc = 1
 
-func move_to_target():
-	if global_position.distance_to(path[0]) < threshold:
-		path.remove(0)
+#	if loc2.global_position < Vector2(extent, extent):
+#		loc = 1
+#	if loc1.global_position < Vector2(extent, extent):
+#		loc = 2
+
+	if loc == 1 and loc1.global_position  <= Vector2(extent, extent):
+		input_vector.x = loc1.global_position.x
+		input_vector.y = loc1.global_position.y
+#	if loc == 2:
+#		input_vector.x = loc2.global_position.x
+#		input_vector.y = loc2.global_position.y
+
+	input_vector = input_vector.normalized()
+	if input_vector != Vector2.ZERO:
+		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
-		var direction = global_position.direction_to(path[0])
-		velocity = direction * speed
-		velocity = move_and_slide(velocity)
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+	move()
 
-func get_target_path(target_pos):
-	path = nav.get_simple_path(global_position, target_pos, false)
-
-#https://github.com/Rayuse/godot-2d-pathfinding/blob/main/world/world.gd
-
-
-
+func move():
+	velocity = move_and_slide(velocity)
+	Sprite.flip_h = velocity.x < 0

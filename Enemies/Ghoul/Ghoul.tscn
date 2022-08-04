@@ -22,3 +22,9 @@ position = Vector2( 1.03461, 11.9636 )
 rotation = 1.57079
 scale = Vector2( 0.999999, 0.999999 )
 shape = SubResource( 1 )
+
+[node name="Loc 1" type="Position2D" parent="."]
+position = Vector2( 29.1439, 16.3934 )
+
+[node name="Loc 2" type="Position2D" parent="."]
+position = Vector2( 72.8597, 72.8597 )
