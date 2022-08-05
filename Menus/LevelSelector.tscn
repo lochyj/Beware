@@ -4,7 +4,7 @@
 [ext_resource path="res://Fonts/DotGothic16-Regular.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=5]
-size = 57
+size = 50
 outline_size = 1
 font_data = ExtResource( 2 )
 
@@ -69,7 +69,7 @@ text = "Level 4"
 margin_left = 352.0
 margin_top = 304.0
 margin_right = 672.0
-margin_bottom = 369.0
+margin_bottom = 377.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 5 )
 custom_styles/hover = SubResource( 6 )
@@ -81,7 +81,7 @@ text = "Level 2"
 margin_left = 352.0
 margin_top = 224.0
 margin_right = 672.0
-margin_bottom = 289.0
+margin_bottom = 297.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 5 )
 custom_styles/hover = SubResource( 6 )
