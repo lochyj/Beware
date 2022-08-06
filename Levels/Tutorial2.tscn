@@ -60,4 +60,9 @@ position = Vector2( 720, 256 )
 position = Vector2( 752, 96 )
 scale = Vector2( 0.948658, 0.948658 )
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 0, 0, 0, 8, 0, 600, 1024, 600, 1024, 0, 0, 0, 0, -32, 1048, -24, 1048, 624, -40, 624, -40, -32, 0, -32, 0, 0 )
+
 [editable path="Player"]
