@@ -70,6 +70,12 @@ autowrap = true
 position = Vector2( 744, 256 )
 scale = Vector2( 1, 1 )
 
+[node name="Location 1" parent="YSort/KinematicBody2D/Node2D" index="0"]
+position = Vector2( 896, 256 )
+
+[node name="Location 2" parent="YSort/KinematicBody2D/Node2D" index="1"]
+position = Vector2( 725, 256 )
+
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 752, 96 )
 scale = Vector2( 0.948658, 0.948658 )
@@ -77,4 +83,5 @@ scale = Vector2( 0.948658, 0.948658 )
 [node name="Coin" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 744, 168 )
 
+[editable path="YSort/KinematicBody2D"]
 [editable path="YSort/Player"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Enemies/Ghoul/Ghoul.gd" type="Script" id=1]
 [ext_resource path="res://Enemies/Ghoul/Beware!-ghoulanim.png" type="Texture" id=2]
@@ -7,9 +7,20 @@
 radius = 5.46455
 height = 21.8578
 
+[sub_resource type="CircleShape2D" id=4]
+radius = 14.5719
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 8.0
+
 [node name="KinematicBody2D" type="KinematicBody2D" groups=["Enemy"]]
 scale = Vector2( 0.549, 0.549 )
 script = ExtResource( 1 )
+MAX_SPEED = 45
+ACCELERATION = 300
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -2.60838, -15.3588 )
@@ -23,19 +34,34 @@ rotation = 1.57079
 scale = Vector2( 0.999999, 0.999999 )
 shape = SubResource( 1 )
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 4 )
+
 [node name="Node2D" type="Spatial" parent="."]
 
-[node name="Loc 1" type="Position2D" parent="Node2D"]
+[node name="Location 1" type="Position2D" parent="Node2D"]
 position = Vector2( 48, 104 )
 
-[node name="Beware!-ghoulanim" type="Sprite" parent="Node2D/Loc 1"]
-position = Vector2( 0, -3.8147e-06 )
-scale = Vector2( 0.079235, 1 )
-texture = ExtResource( 2 )
+[node name="Loc1" type="Area2D" parent="Node2D/Location 1"]
+collision_layer = 2048
+collision_mask = 0
 
-[node name="Loc 2" type="Position2D" parent="Node2D"]
-position = Vector2( 106, 40 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Location 1/Loc1"]
+shape = SubResource( 2 )
 
-[node name="Beware!-ghoulanim" type="Sprite" parent="Node2D/Loc 2"]
-scale = Vector2( 0.0948599, 1 )
-texture = ExtResource( 2 )
+[node name="Location 2" type="Position2D" parent="Node2D"]
+position = Vector2( 112, 40 )
+
+[node name="Loc2" type="Area2D" parent="Node2D/Location 2"]
+collision_layer = 2048
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Location 2/Loc2"]
+shape = SubResource( 3 )
+
+[connection signal="area_entered" from="Node2D/Location 1/Loc1" to="." method="_on_Loc1_area_entered"]
+[connection signal="area_entered" from="Node2D/Location 2/Loc2" to="." method="_on_Loc2_area_entered"]
