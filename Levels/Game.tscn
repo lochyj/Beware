@@ -11,42 +11,21 @@
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Navigation2D" type="Navigation2D" parent="."]
-
-[node name="TileSet" parent="Navigation2D" instance=ExtResource( 4 )]
+[node name="TileSet" parent="." instance=ExtResource( 4 )]
 position = Vector2( 200, 104 )
 scale = Vector2( 2, 2 )
+z_index = -1
 
-[node name="WallTops" parent="Navigation2D" instance=ExtResource( 4 )]
+[node name="WallTops" parent="." instance=ExtResource( 4 )]
 position = Vector2( 200, 104 )
 scale = Vector2( 2, 2 )
+z_index = -1
 tile_data = PoolIntArray( 524290, 0, 3, 524291, 0, 3, 524292, 0, 2, 524293, 0, 2, 524294, 0, 2, 524295, 0, 3, 524296, 0, 3, 524297, 0, 3, 524298, 0, 3, 524299, 0, 3, 524300, 0, 2, 524301, 0, 2, 524302, 0, 2 )
 
 [node name="Camera" parent="." instance=ExtResource( 6 )]
 
 [node name="Exit" parent="." instance=ExtResource( 2 )]
 position = Vector2( 632, 344 )
-
-[node name="Enemy" parent="." instance=ExtResource( 7 )]
-position = Vector2( 488, 264 )
-
-[node name="Location 1" parent="Enemy/Node2D" index="0"]
-position = Vector2( 440, 216 )
-
-[node name="Location 2" parent="Enemy/Node2D" index="1"]
-position = Vector2( 568, 272 )
-
-[node name="Enemy2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 408, 312 )
-
-[node name="Location 1" parent="Enemy2/Node2D" index="0"]
-position = Vector2( 376, 344 )
-
-[node name="Location 2" parent="Enemy2/Node2D" index="1"]
-position = Vector2( 496, 336 )
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 296, 238 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -72,8 +51,26 @@ scale = Vector2( 0.548658, 0.548658 )
 position = Vector2( 400, 217 )
 scale = Vector2( 0.548658, 0.548658 )
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
+[node name="Enemy" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 488, 264 )
+
+[node name="Location 1" parent="YSort/Enemy/Node2D" index="0"]
+position = Vector2( 440, 216 )
+
+[node name="Location 2" parent="YSort/Enemy/Node2D" index="1"]
+position = Vector2( 568, 272 )
+
+[node name="Enemy2" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 408, 312 )
+
+[node name="Location 1" parent="YSort/Enemy2/Node2D" index="0"]
+position = Vector2( 376, 344 )
+
+[node name="Location 2" parent="YSort/Enemy2/Node2D" index="1"]
+position = Vector2( 496, 336 )
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 296, 238 )
 
 [connection signal="on_exit" from="Exit" to="." method="_on_Exit_on_exit"]
 [connection signal="coin_collected" from="YSort/Coins/Coin" to="." method="_on_Coin_coin_collected"]
@@ -86,8 +83,7 @@ autostart = true
 [connection signal="coin_collected" from="YSort/Coins/Coin2" to="Camera" method="_on_Coin_coin_collected"]
 [connection signal="coin_collected" from="YSort/Coins/Coin3" to="." method="_on_Coin_coin_collected"]
 [connection signal="coin_collected" from="YSort/Coins/Coin3" to="Camera" method="_on_Coin_coin_collected"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 [editable path="Camera"]
-[editable path="Enemy"]
-[editable path="Enemy2"]
+[editable path="YSort/Enemy"]
+[editable path="YSort/Enemy2"]

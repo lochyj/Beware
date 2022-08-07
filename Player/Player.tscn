@@ -1,13 +1,64 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Player/TempPlayer.png" type="Texture" id=2]
+[ext_resource path="res://Player/PlayerAnim.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 25.5168, 38.2752 )
 
 [sub_resource type="CapsuleShape2D" id=3]
 height = 20.0979
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+length = 0.4
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Running"
+length = 0.533
+loop = true
+step = 0.133
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.133, 0.266, 0.399, 0.532 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7, 4 ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 0.548658, 0.548658 )
@@ -17,8 +68,10 @@ ACCELERATION = 900
 FRICTION = 1500
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -29.1621 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
+hframes = 9
 
 [node name="Detection" type="Area2D" parent="."]
 collision_layer = 3
@@ -33,3 +86,8 @@ position = Vector2( 0, 27.3394 )
 rotation = 1.57079
 scale = Vector2( 0.999999, 0.999999 )
 shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+anims/Running = SubResource( 8 )

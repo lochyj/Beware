@@ -2,6 +2,23 @@ extends Node
 
 var current_scene = null
 
+
+# User data
+export(int) var level1 = 0 setget level
+export(int) var level2 = 0 setget level
+export(int) var level3 = 0 setget level
+export(int) var level4 = 0 setget level
+
+export(int) var deaths = 0 setget death
+
+#/
+
+func level(value):
+	print("Level highscore set!")
+
+func death(value):
+	print("Player died!")
+
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
