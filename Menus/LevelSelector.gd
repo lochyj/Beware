@@ -1,9 +1,9 @@
 extends Node2D
 
-export(String) var level1 = "res://Levels/Game.tscn"
-export(String) var level2 = "res://Levels/level2.tscn"
-export(String) var level3 = "res://Levels/level3.tscn"
-export(String) var level4 = "res://Levels/level4.tscn"
+export(String) var level1 = "res://Levels//Level1.tscn"
+export(String) var level2 = "res://Levels//Level2.tscn"
+export(String) var level3 = "res://Levels//Level3.tscn"
+export(String) var level4 = "res://Levels//Level4.tscn"
 
 func _on_Level1_pressed():
 	Global.goto_scene(level1)

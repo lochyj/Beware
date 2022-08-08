@@ -12,6 +12,7 @@ font_data = SubResource( 97 )
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 7 )
+path = "res://Levels//Tutorial2.tscn"
 
 [node name="Label" type="Label" parent="."]
 margin_left = 32.0

@@ -1,7 +1,7 @@
 extends Node2D
 
-export(String) var tut = "res://levels/Tutorial.tscn"
-export(String) var sel = "res://Menus/LevelSelector.tscn"
+export(String) var tut = "res://Levels//Tutorial.tscn"
+export(String) var sel = "res://Menus//LevelSelector.tscn"
 
 
 func _input(event):
