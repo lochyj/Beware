@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Resources/NewTileset.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -379,67 +379,107 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
+[sub_resource type="Animation" id=39]
+resource_name = "Move"
+length = 0.769
+loop = true
+step = 0.154
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.154, 0.308, 0.462, 0.616, 0.77 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 4, 5, 6, 7, 1 ]
+}
+
+[sub_resource type="Animation" id=40]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 3 ]
+}
+
 [node name="Test" type="Node2D"]
 script = ExtResource( 5 )
 
 [node name="Floors and walls" type="TileMap" parent="."]
-position = Vector2( 152, -8 )
+position = Vector2( 24, 16 )
 scale = Vector2( 3, 3 )
 z_index = -1
 tile_set = SubResource( 36 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 196606, 0, 1179648, 196607, 0, 1179649, 131072, 0, 1179649, 131073, 0, 1179649, 131074, 0, 1179649, 131075, 0, 1179649, 131076, 0, 1179649, 131077, 0, 1179649, 131078, 0, 1179649, 131079, 0, 1179649, 131080, 0, 1179649, 131081, 0, 1179649, 131082, 0, 1179649, 131083, 0, 1179649, 131084, 0, 1179649, 131085, 0, 1179650, 262142, 0, 1245184, 262143, 0, 0, 196608, 0, 1, 196609, 0, 1, 196610, 0, 1, 196611, 0, 1, 196612, 0, 1, 196613, 0, 1, 196614, 0, 1, 196615, 0, 1, 196616, 0, 1, 196617, 0, 1, 196618, 0, 1, 196619, 0, 1, 196620, 0, 2, 196621, 0, 1245186, 327678, 0, 1245184, 327679, 0, 65536, 262144, 0, 65537, 262145, 0, 65537, 262146, 0, 65537, 262147, 0, 65537, 262148, 0, 65537, 262149, 0, 65537, 262150, 0, 65537, 262151, 0, 65537, 262152, 0, 65537, 262153, 0, 65537, 262154, 0, 65537, 262155, 0, 65537, 262156, 0, 65538, 262157, 0, 1245186, 393214, 0, 1245184, 393215, 0, 65536, 327680, 0, 65537, 327681, 0, 65537, 327682, 0, 65537, 327683, 0, 65537, 327684, 0, 65537, 327685, 0, 65537, 327686, 0, 65537, 327687, 0, 65537, 327688, 0, 65537, 327689, 0, 65537, 327690, 0, 65537, 327691, 0, 65537, 327692, 0, 65538, 327693, 0, 1245186, 458750, 0, 1245184, 458751, 0, 131072, 393216, 0, 131073, 393217, 0, 131073, 393218, 0, 131073, 393219, 0, 131073, 393220, 0, 131073, 393221, 0, 131073, 393222, 0, 131073, 393223, 0, 131073, 393224, 0, 131073, 393225, 0, 131073, 393226, 0, 131073, 393227, 0, 131073, 393228, 0, 131074, 393229, 0, 1245186, 524286, 0, 1310720, 524287, 0, 1376262, 458752, 0, 1310721, 458753, 0, 1310721, 458754, 0, 1310721, 458755, 0, 1310721, 458756, 0, 1310721, 458757, 0, 1310721, 458758, 0, 1310721, 458759, 0, 1310721, 458760, 0, 1310721, 458761, 0, 1310721, 458762, 0, 1310721, 458763, 0, 1376262, 458764, 0, 1310721, 458765, 0, 1310722 )
+tile_data = PoolIntArray( 13, 0, 1179648, 14, 0, 1179649, 15, 0, 1376262, 16, 0, 1179649, 17, 0, 1179650, 65549, 0, 1245186, 65550, 0, 0, 65551, 0, 1, 65552, 0, 2, 65553, 0, 1245186, 131081, 0, 1179648, 131082, 0, 1310721, 131083, 0, 1310721, 131084, 0, 1310721, 131085, 0, 1310722, 131086, 0, 65536, 131087, 0, 65537, 131088, 0, 65538, 131089, 0, 1245186, 196617, 0, 1245184, 196618, 0, 0, 196619, 0, 1, 196620, 0, 1, 196621, 0, 1, 196622, 0, 327682, 196623, 0, 65537, 196624, 0, 65538, 196625, 0, 1245186, 262153, 0, 1245184, 262154, 0, 65536, 262155, 0, 65537, 262156, 0, 65537, 262157, 0, 65537, 262158, 0, 65537, 262159, 0, 65537, 262160, 0, 65538, 262161, 0, 1245186, 327689, 0, 1245184, 327690, 0, 65536, 327691, 0, 65537, 327692, 0, 65537, 327693, 0, 65537, 327694, 0, 327682, 327695, 0, 65537, 327696, 0, 65538, 327697, 0, 1245186, 393218, 0, 1179648, 393219, 0, 1310721, 393220, 0, 1310721, 393221, 0, 1310721, 393222, 0, 1310721, 393223, 0, 1310721, 393224, 0, 1310721, 393225, 0, 1310722, 393226, 0, 65536, 393227, 0, 65537, 393228, 0, 65537, 393229, 0, 65537, 393230, 0, 65537, 393231, 0, 65537, 393232, 0, 65538, 393233, 0, 1245186, 458754, 0, 1245184, 458755, 0, 0, 458756, 0, 1, 458757, 0, 1, 458758, 0, 1, 458759, 0, 1, 458760, 0, 1, 458761, 0, 1, 458762, 0, 327682, 458763, 0, 65537, 458764, 0, 65537, 458765, 0, 65537, 458766, 0, 65537, 458767, 0, 65537, 458768, 0, 65538, 458769, 0, 1245186, 524290, 0, 1245184, 524291, 0, 65536, 524292, 0, 65537, 524293, 0, 65537, 524294, 0, 65537, 524295, 0, 65537, 524296, 0, 65537, 524297, 0, 65537, 524298, 0, 65537, 524299, 0, 65537, 524300, 0, 65537, 524301, 0, 65537, 524302, 0, 65537, 524303, 0, 65537, 524304, 0, 65538, 524305, 0, 1245186, 589826, 0, 1245184, 589827, 0, 131072, 589828, 0, 131073, 589829, 0, 131073, 589830, 0, 131073, 589831, 0, 131073, 589832, 0, 131073, 589833, 0, 131073, 589834, 0, 131073, 589835, 0, 131073, 589836, 0, 131073, 589837, 0, 131073, 589838, 0, 131073, 589839, 0, 131073, 589840, 0, 131074, 589841, 0, 1245186, 655362, 0, 1310720, 655363, 0, 1179649, 655364, 0, 1310721, 655365, 0, 1310721, 655366, 0, 1310721, 655367, 0, 1376262, 655368, 0, 1310721, 655369, 0, 1310721, 655370, 0, 1310721, 655371, 0, 1310721, 655372, 0, 1179649, 655373, 0, 1310721, 655374, 0, 1310721, 655375, 0, 1310721, 655376, 0, 1310721, 655377, 0, 1310722 )
 
 [node name="Objects" type="TileMap" parent="."]
-position = Vector2( 152, -8 )
+position = Vector2( 24, 16 )
 scale = Vector2( 3, 3 )
 z_index = -1
 tile_set = SubResource( 36 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 196609, 0, 1507332, 196613, 0, 1572869, 196616, 0, 1507331, 196618, 0, 1572868, 458751, 0, 1572865, 393219, 0, 1572868, 393223, 0, 1572865 )
+tile_data = PoolIntArray( 65550, 0, 1638406, 131083, 0, 1376262, 131084, 0, 1376263, 196621, 0, 1572870, 327690, 0, 1507331, 327695, 0, 1507331, 327696, 0, 1507331, 393221, 0, 1376263, 393223, 0, 1376262, 393231, 0, 1179649, 393232, 0, 1376263, 393233, 0, 1310726, 458755, 0, 1507329, 458756, 0, 1507334, 458758, 0, 1507332, 458760, 0, 1638404, 458767, 0, 1507333, 524291, 0, 1703937, 524302, 0, 1507333, 524303, 0, 1507335, 524304, 0, 1507333, 589839, 0, 1507333, 589840, 0, 1572867 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 144, 184 )
+position = Vector2( 816, 88 )
 
 [node name="Coin" parent="." instance=ExtResource( 3 )]
-position = Vector2( 304, 176 )
+position = Vector2( 584, 240 )
 
 [node name="Coin2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 696, 166 )
-
-[node name="Coin4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 736, 312 )
+position = Vector2( 816, 376 )
 
 [node name="Coin3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 568, 296 )
+position = Vector2( 256, 424 )
+
+[node name="Coin4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 800, 216 )
+
+[node name="Coin5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 600, 456 )
 
 [node name="Exit" parent="." instance=ExtResource( 4 )]
-position = Vector2( 752, 112 )
+position = Vector2( 528, 136 )
 scale = Vector2( 1.5, 1.5 )
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 6 )]
-position = Vector2( 280, 256 )
-
-[node name="Location 1" parent="KinematicBody2D/Node2D" index="0"]
-position = Vector2( 248, 312 )
-
-[node name="Location 2" parent="KinematicBody2D/Node2D" index="1"]
-position = Vector2( 336, 230 )
-
 [node name="KinematicBody2D2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 512, 230 )
+position = Vector2( 536, 360 )
 
 [node name="Location 1" parent="KinematicBody2D2/Node2D" index="0"]
-position = Vector2( 616, 256 )
+position = Vector2( 496, 472 )
 
 [node name="Location 2" parent="KinematicBody2D2/Node2D" index="1"]
-position = Vector2( 456, 184 )
+position = Vector2( 416, 368 )
 
 [node name="AnimationPlayer" parent="KinematicBody2D2" index="4"]
 anims/Move = SubResource( 37 )
 anims/RESET = SubResource( 38 )
 
-[editable path="KinematicBody2D"]
+[node name="KinematicBody2D3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 712, 360 )
+
+[node name="Location 1" parent="KinematicBody2D3/Node2D" index="0"]
+position = Vector2( 656, 456 )
+
+[node name="Location 2" parent="KinematicBody2D3/Node2D" index="1"]
+position = Vector2( 696, 288 )
+
+[node name="AnimationPlayer" parent="KinematicBody2D3" index="4"]
+anims/Move = SubResource( 39 )
+anims/RESET = SubResource( 40 )
+
 [editable path="KinematicBody2D2"]
+[editable path="KinematicBody2D3"]

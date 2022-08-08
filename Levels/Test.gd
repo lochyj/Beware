@@ -8,8 +8,9 @@ onready var enemie = get_tree().get_nodes_in_group("Enemie")
 
 func _ready():
 	exit.connect("on_exit", self, "Exit")
-	for i in enemie:
-		i.connect("playerDeath", self, "Death")
+	for e in enemie:
+		print("Connected")
+		e.connect("playerDeath", self, "Death")
 
 
 func Exit():

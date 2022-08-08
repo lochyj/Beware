@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Game objects/CoinCollect.gd" type="Script" id=1]
 [ext_resource path="res://Resources/CoinParticle.png" type="Texture" id=2]
+[ext_resource path="res://Resources/pickupCoin.wav" type="AudioStream" id=3]
 
 [node name="CoinCollect" type="Node2D"]
 z_index = -1
@@ -10,7 +11,6 @@ script = ExtResource( 1 )
 [node name="Particles" type="CPUParticles2D" parent="."]
 position = Vector2( 7.62939e-06, 0 )
 scale = Vector2( 4, 4 )
-amount = 20
 lifetime = 0.8
 speed_scale = 1.04
 explosiveness = 1.0
@@ -41,5 +41,10 @@ hue_variation_random = 1.0
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 0.015
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
